@@ -9,9 +9,8 @@ index = scounter
 max = len(data)
 counter = 0
 w = np.array([0.0,0.0,0.0])
-# (1 x1 x2)
 
-
+# perceptron algorithm
 while counter < len(targets):
     if (targets[index] * np.dot(w, data[index]) <= 0):
         ccounter += 1
@@ -20,3 +19,9 @@ while counter < len(targets):
     else:
         counter += 1
     index = (index + 1) % len(targets)
+
+
+# number of iterations
+print(ccounter)
+# final w
+print(w)
