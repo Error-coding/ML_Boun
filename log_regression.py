@@ -101,8 +101,9 @@ for d in range(5):
                 indecestrain.append(a)
 
 
-    # SGD
+    # SGD, comment out to only do GD
     w = np.zeros((length, ))
+    # number of epochs done
     epochs = 5
     decay = 0
     for e in range(epochs):
@@ -116,7 +117,6 @@ for d in range(5):
     for i in indecestrain:
         errorsum +=  abs(targets[i] - (2 * (-0.5 + sigmoid(np.dot(w, data[i, :])))))
 
-    #print("SGD train: " + str(errorsum/len(indecestrain)))
     trainaccsum += errorsum/len(indecestrain)
 
     errorsum = 0
@@ -125,8 +125,9 @@ for d in range(5):
 
     testaccsum += errorsum/len(indecestest)
 
-    # GD
+    # GD, comment out to only do SGD
     w = np.zeros((length, ))
+    # number of steps done in GD
     steps = 500
     for e in range(steps):
         delta = np.zeros((length,))
